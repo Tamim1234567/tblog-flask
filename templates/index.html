@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block body %}
+
+  
+{% if showhero %}
+<div class="hero sec">
+    <div class="left">
+      <h1>Hi I am Tamim</h1>
+      <h1>and I am a passionate</h1>
+      <div class="f-large">
+
+        <span class="blue" id="element"></span>
+      </div>
+<h2 style="font-family: monospace;">I love to code and learn new skills and building reallife projects.You can contact with me by clicking on contact me button bellow</h2>
+      <div class="btn-group">
+        <a href="/contact" class="mr-2"><button class="btn-sm-alt text-large hero-btn-1">Contact Me</button></a>
+        <a href="/blogs" class="mr-2"><button class="btn-sm-alt text-large hero-btn-1">View Blogs</button></a>
+
+      </div>
+    </div>
+    <div class="right stup">
+      <img src="{{ url_for('static', filename='img/developer.svg') }}" alt="" height="500" />
+    </div>
+  </div>
+
+{% endif %}
+</div>
+   {% if showblogs %}
+    
+  <div class="section sec blog-section" id="blogs">
+
+  
+    <div class="blogs">
+
+      {% for post in posts %}
+
+
+      <div class="card">
+        <div class="card-content">
+          <div class="card-text">
+
+            <h3 class="card-title">{{post.title}}</h3>
+            <br>
+            <p>
+              {{post.desc[:500] }} ...
+
+            </p>
+          </div>
+        </div>
+        <br />
+        <a href="/blog/{{post.id}}">
+          <button class="btn-sm">View blog</button>
+        </a>
+      </div>
+        
+      {% endfor %}
+     
+
+    </div>
+  </div>
+   {% endif %}
+{% if showabout %}
+<div class="about-section">
+
+    <div class="section-header">
+
+      <h1 class="blue b-bottom" id="about">About Me</h1>
+    </div>
+
+    <div class="about sec">
+
+      <div class="about-content">
+        <i>
+          <h3>I am Ashiqur Rahman Tamim.You can also call me ART.I am a self taught programmer. Although I know many things I am still a bigginner. But I am passionate about learning programming and new technologys.I belive that we should be prepared to learn new things because everything is updating and everything should update.If you want to hire me then you can go to <a href="contact.html" class="random-link">contact</a> page</h3>
+        </i>
+      </div>
+
+    </div>
+  </div>
+{% endif %}
+
+{% if showcontact %}
+<div class="sec" id="contact">
+    <div class="section-header">
+
+      <h1 class="blue contact-h">Contact</h1>
+    </div>
+    <div class="contact">
+
+      <div class="form">
+        <h1 style="color: #34bfff">Contact with me</h1>
+        <br />
+        <form action="/contact" method="post">
+          <!-- <h1 class="contact-header">Contact</h1> -->
+          <div class="inp-group">               
+            <input type="text" class="form-control inp" name="name" id="name" placeholder="Name" required />
+          </div>
+          <div class="inp-group">
+            <input type="email" class="form-control inp" name="email" id="email" placeholder="Email" required />
+          </div>
+          <div class="inp-group">
+            <textarea name="messege" class="textarea inp" id="messege" placeholder="Messege" rows="10"></textarea>
+          </div>
+          <br />
+          <button type="submit" class="btn-sm sp-font">
+            <i class="fa-solid fa-paper-plane"></i> Send
+          </button>
+        </form>
+      </div>
+      <div class="info">
+        <div class="info-box">
+          <div class="contact-info">
+            <i class="fa-solid fa-phone large-ic"></i>
+            <span class="info-header"> Call Me</span>
+            <p class="mt-1 info-text">0101010100</p>
+            <br />
+          </div>
+          <div class="contact-info">
+            <i class="fa-solid fa-location-dot large-ic"></i>
+            <span class="info-header"> Location</span>
+            <p class="mt-1 info-text">11/2 kushumbag,Dhaka,Bangladesh</p>
+            <br />
+          </div>
+          <div class="contact-info">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="info-header"> Email</span>
+            <p class="mt-1 info-text">emniekta@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endif %}
+  
+  <br>
+  <br>
+  <br>
+  {% endblock body %}

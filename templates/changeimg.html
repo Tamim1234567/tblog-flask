@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Post</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='img/logo2.png') }}"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <style>
+      body {
+        background-image: url("../static/post_image/{{posts.filename}}") !important;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="contact"
+      style="
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-left: none;
+      "
+    >
+      <div
+        class="form"
+        style="background: transparent; width: 100% !important; margin: 20px"
+      >
+        <h1 style="color: #34bfff">Update your blog image</h1>
+        <br />
+        <form
+          action="/changeimg/{{posts.id}}"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <!-- <h1 class="contact-header">Contact</h1> -->
+
+          <input
+            class="inp inp-file"
+            name="update_img"
+            type="file"
+            id="update_img"
+            style="cursor: pointer"
+          />
+
+          <button type="submit" class="btn-sm sp-font">Update</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

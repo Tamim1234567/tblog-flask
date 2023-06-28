@@ -1,0 +1,125 @@
+{% if password=="" %}
+<h1>Please enter password in url</h1>
+
+{% elif password=="tamimofficial" %} {% extends 'base.html' %} {% block body %}
+
+<div
+  class="contact"
+  style="
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-left: none;
+    background: #000;
+  "
+>
+  <div class="form" style="width: 100% !important; margin: 20px">
+    <h1 style="color: #34bfff">Lets upload new blog</h1>
+    <br />
+    <form
+      action="/admin/{{password}}"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <!-- <h1 class="contact-header">Contact</h1> -->
+      <div class="inp-group">
+        <input
+          type="text"
+          class="form-control inp"
+          name="title"
+          id="name"
+          placeholder="Title"
+          required
+        />
+      </div>
+      <div class="inp-group">
+        <input
+          type="file"
+          class="form-control inp inp-file"
+          name="image"
+          id="image"
+          placeholder="Upload blog Image"
+          required
+        />
+      </div>
+
+      <div class="inp-group">
+        <textarea
+          name="desc"
+          class="textarea inp"
+          id="messege"
+          placeholder="Description"
+          rows="10"
+        ></textarea>
+      </div>
+      <br />
+      <button type="submit" class="btn-sm sp-font">Publish</button>
+    </form>
+  </div>
+</div>
+<div class="flex-con admin-info">
+  <div class="left-con">
+    <div class="b-bottom">
+      <h1 class="text-center blue">Your Posts</h1>
+    </div>
+    <div class="section sec blog-section ovy-auto" style="height: 50vh">
+      <div class="blogs">
+        {% for post in blogs %}
+        <div class="card">
+          <div class="card-content">
+            <div class="card-text">
+              <h3 class="card-title">{{post.title}}</h3>
+              <br />
+              <p>{{post.desc[:500] }} ...</p>
+              <br />
+              <small>{{post.date}}</small>
+            </div>
+          </div>
+          <br />
+          <a href="/update/{{post.id}}">
+            <button class="btn-sm">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          </a>
+          <a href="/delete/{{post.id}}">
+            <button class="btn-sm">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </a>
+          <a href="/blog/{{post.id}}">
+            <button class="btn-sm">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="right-con">
+    <div class="section sec blog-section ovy-auto" style="height: 50vh">
+      <div class="b-bottom">
+        <h1 class="text-center blue">Messeges</h1>
+      </div>
+      <div class="blogs">
+        {% for msg in data %}
+        <div class="card">
+          <div class="card-content">
+            <div class="card-text">
+              <h3 class="card-title">Name is {{msg.name}}</h3>
+              <h3 class="card-title">Email is {{msg.email}}</h3>
+              <br />
+              <p>This man messeged {{msg.messege}}</p>
+              <br />
+              <small>{{msg.date}}</small>
+            </div>
+          </div>
+          <br />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %} {% endif %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block body %}
+
+
+  <div class="blog-page-section">
+    <h1 class="blog-page-header">
+      {{posts.title}}
+    </h1>
+    <div class="blog-img">
+      <img
+        class=""
+        src="../static/post_image/{{posts.filename}}"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <span class="blog-details"
+      >{{posts.desc}}</span
+    >
+  </div>
+  <form action="/comment/{{posts.id}}" method="post" class="comment">
+    <textarea name="comment" id="" placeholder="Comment"></textarea>
+    <button type="submit" class="btn-sm">Comment</button>
+  </form>
+  <div class="comments">
+    {% for postComment in comments %}
+    <div class="comment-card">
+      <div class="user-image"><i class="fa-solid fa-circle-user"></i></div>
+      <div class="comment-details">
+       {{postComment.comment}}
+      </div>
+    </div>
+    {% endfor %}
+ 
+  
+  </div>
+  <br />
+  <br />
+  <br />
+</div>
+
+{% endblock body %}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tamim - Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2d0c432aa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='img/logo2.png') }}"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  
+    
+          {% block style %}
+  
+
+        {% endblock style %}
+  </head>
+
+  <body>
+    
+    <div class="section home">
+        <div class="nav-cen">
+    
+          <nav>
+    
+            <div class="logo" id="logo">
+              <h1><b class="white">Tamim</b><b class="blue">.</b></h1>
+            </div>
+            <ul id="hide-on-sm">
+              <li><a class="nav-link" href="/">Home</a></li>
+              <li><a class="nav-link" href="/blogs" onclick="toggleHide()">Blogs</a></li>
+              <li><a class="nav-link" href="/about" onclick="toggleHide()">About</a></li>
+              <li><a class="nav-link" href="/contact" onclick="toggleHide()">Contact</a></li>
+            </ul>
+    
+            <div class="nav-toggle-button">
+    
+              <i class="fa fa-bars" id="show-nav" onclick="toggleShow()"></i>
+              <i class="fa-solid fa-xmark" id="hide-nav" onclick="toggleHide()"></i>
+            </div>
+          </nav>
+        </div>
+    {% block body %} {% endblock body %}
+    <div class="nav-cen">
+
+    <footer class="footer blue bg-dark text-center p-thick">
+      <div class="footer-text">
+        <p>© 2023 Ashiqur Rahman Tamim</p>
+      </div>
+      <div id="social-contact">
+        <a
+          target="_blank"
+          class="social-link cursorDefault"
+          href="https://github.com/tamim1234567"
+          ><i class="fab fa-github" aria-hidden="true"></i
+        ></a>
+        <a
+          target="_blank"
+          class="social-link"
+          href="https://www.facebook.com/profile.html?id=100070913226077"
+          ><i class="fab fa-facebook" aria-hidden="true"></i
+        ></a>
+        <a target="_blank" class="social-link" href="https://www.youtube.com/"
+          ><i class="fab fa-youtube" aria-hidden="true"></i
+        ></a>
+        <!-- <a target="_blank" class="social-link" href="https://www.linkedin.com/"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a> -->
+        <!-- <a target="_blank" class="social-link" href="https://www.instagram.com/"><i class="fab fa-instagram" aria-hidden="true"></i></a> -->
+        <!-- <a target="_blank" class="social-link" href="https://twitter.com/"><i class="fab fa-twitter" aria-hidden="true"></i></a> -->
+      </div>
+    </footer>
+</div>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Post</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='img/logo2.png') }}"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div
+      class="contact"
+      style="
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-left: none;
+        background: #000;
+      "
+    >
+      <div class="form" style="width: 100% !important; margin: 20px">
+        <h1 style="color: #34bfff">Update your blog</h1>
+        <br />
+        <form
+          action="/update/{{proj_id}}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <!-- <h1 class="contact-header">Contact</h1> -->
+          <div class="inp-group">
+            <input
+              type="text"
+              class="form-control inp"
+              name="title"
+              id="name"
+              placeholder="Title"
+              value="{{posts.title}}"
+              required
+            />
+          </div>
+          <div class="inp-group">
+            <a href="/changeimg/{{posts.id}}"
+              ><input
+                type="text"
+                class="inp form-control"
+                placeholder="Change image"
+                style="cursor: pointer"
+            /></a>
+          </div>
+          <div class="inp-group">
+            <textarea
+              name="desc"
+              class="textarea inp"
+              id="messege"
+              placeholder="Description"
+              rows="10"
+            >
+{{posts.desc}}</textarea
+            >
+          </div>
+          <br />
+          <button type="submit" class="btn-sm sp-font">Update</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <!-- <script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+      // Set the default file location
+      const defaultFileLocation = "{{posts.filename}}";
+
+      // Get the file input element
+      const fileInput = document.getElementById("image");
+
+      // Set the default value
+      fileInput.value = defaultFileLocation;
+    });
+  </script> -->
+</html>
