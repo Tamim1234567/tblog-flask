@@ -225,6 +225,7 @@ nav > ul > li > a:hover {
   margin: 10px;
   background: #01324954;
   padding: 10px;
+  width: 80%;
   color: white;
   animation-name: home;
   animation-fill-mode: forwards;
